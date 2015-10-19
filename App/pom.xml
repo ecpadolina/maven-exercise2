@@ -49,4 +49,38 @@
      </plugin>
     </plugins>
   </build>
+  
+  <profiles>
+  <profile>
+    <id>exec</id>
+    <activation>
+      <activeByDefault>true</activeByDefault>
+    </activation>
+    <build>
+      <plugins>
+        <plugin>
+           <groupId>org.codehaus.mojo</groupId>
+           <artifactId>exec-maven-plugin</artifactId>
+           <version>1.2.1</version>
+           <executions>
+            <execution>
+              <id>execute-java</id>
+              <phase>package</phase>
+              <goals>
+                <goal>java</goal>
+              </goals>
+            </execution>
+           </executions>
+           <configuration>
+            <mainClass>com.multimodule.Main</mainClass>
+              <arguments>
+                <argument>tryfile.txt</argument>
+              </arguments>
+          </configuration>
+        </plugin>
+      </plugins>
+    </build>
+  </profile>
+  </profiles>
+  
 </project>
